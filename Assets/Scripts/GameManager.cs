@@ -1,5 +1,9 @@
+using Assets.Scripts.Events;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +14,10 @@ public class GameManager : MonoBehaviour
     private GameState defaultState;
 
     public GameState GameState { get; private set; }
+
+    public LevelManager LevelManager;
+
+    public PlayerManager PlayerManager;
 
     private void Awake()
     {
@@ -22,9 +30,10 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
         }
+        GameState = Instantiate(defaultState); 
 
-        GameState = Instantiate(defaultState);
-
+        LevelManager.GameState = GameState;
+        PlayerManager.GameState = GameState;
     }
 
     // Update is called once per frame

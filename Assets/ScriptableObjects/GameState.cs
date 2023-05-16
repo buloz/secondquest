@@ -1,7 +1,17 @@
 ﻿using UnityEngine;
+using static Spawn;
 
-[CreateAssetMenu(fileName = "GameState", menuName = "ScriptableObjects/GameState")]
-public class GameState : ScriptableObject
+public class GameState : MonoBehaviour
 {
-    public Transform PlayerSpawn;
+    public enum State
+    {
+        Start,
+        Castle,
+        Level,
+        Menu,
+    }
+
+    public State EState;
+
+    public Spawn PlayerSpawn;
 }
