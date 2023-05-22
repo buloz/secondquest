@@ -1,7 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
-using UnityEngine.Events;
-using static Spawn;
+﻿using UnityEngine.Events;
 
 namespace Assets.Scripts.Events
 {

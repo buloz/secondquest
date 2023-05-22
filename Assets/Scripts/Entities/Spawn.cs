@@ -8,6 +8,7 @@ public class Spawn : MonoBehaviour
         Entrance = 1,
         Exit = 2,
         Centrer = 3,
+        Ennemy = 4,
     }
 
     public SpawnTag ESpawnTag;

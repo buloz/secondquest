@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using static Spawn;
 
 public class GameState : MonoBehaviour
 {

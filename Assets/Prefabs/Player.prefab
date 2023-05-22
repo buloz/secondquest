@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 2039758631222286500}
   - component: {fileID: 2039758631222286501}
   - component: {fileID: 2039758631222286523}
+  - component: {fileID: 7268734108378925062}
   - component: {fileID: 2039758631222286525}
   - component: {fileID: 2039758631222286524}
-  m_Layer: 0
+  - component: {fileID: -7217517781238168029}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -206,6 +208,21 @@ MonoBehaviour:
   animator: {fileID: 2039758631222286520}
   movementState: 0
   moveSpeed: 40
+--- !u!114 &7268734108378925062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039758631222286499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c7a547e360088488f7dbdcbacdcab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &2039758631222286525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +248,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eObjectTag: 3
+--- !u!114 &-7217517781238168029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039758631222286499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dc28a0da677c347a6dbcca1da1c17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackSpeed: 2
+  AttackRange: 0
+  AttackTime: 0
+  AttackDamage: 2
+  MaxHealthPoints: 10
 --- !u!1 &2039758632579642122
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2039758632579642125}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +308,7 @@ GameObject:
   - component: {fileID: 3159900474584842745}
   - component: {fileID: 4610104890708979004}
   - component: {fileID: 8726324809601715453}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

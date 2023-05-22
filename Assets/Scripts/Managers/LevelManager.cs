@@ -1,10 +1,6 @@
 using Assets.Scripts.Events;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using static Spawn;
 
 public class LevelManager : MonoBehaviour

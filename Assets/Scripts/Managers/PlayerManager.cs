@@ -1,10 +1,5 @@
 using Assets.Scripts.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using static Spawn;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -17,6 +12,7 @@ public class PlayerManager : MonoBehaviour
 
     public void OnEnable()
     {
+        CreatePlayerInstance();
         LevelEvents.levelLoaded += Spawn;
         LevelEvents.levelExit += OnLevelExit;
     }
@@ -27,9 +23,9 @@ public class PlayerManager : MonoBehaviour
         LevelEvents.levelExit -= OnLevelExit;
     }
 
-    protected void Spawn()
+    protected void CreatePlayerInstance()
     {
-        if(GameState?.PlayerSpawn != null)
+        if (GameState?.PlayerSpawn != null)
         {
             Player = Instantiate(_playerPrefab, GameState.PlayerSpawn.transform.position, Quaternion.identity);
         }
@@ -38,18 +34,34 @@ public class PlayerManager : MonoBehaviour
             Player = Instantiate(_playerPrefab, this.GetComponentInParent<LevelManager>().GetEntranceSpawn().transform.position, Quaternion.identity);
         }
 
-        if(Player)
+        if (Player)
         {
             PlayerEvents.onPlayerSpawn?.Invoke(Player.transform);
         }
         else
         {
-            throw new MissingReferenceException("No player instance. Might have failed to spawn.");
-        }    
+            throw new MissingReferenceException("No reference of player instance.");
+        }
+    }
+
+    protected void Spawn()
+    {
+        Spawn spawnPoint;
+        if (GameState?.PlayerSpawn != null)
+        {
+            spawnPoint = GameState.PlayerSpawn;
+        }
+        else
+        {
+            spawnPoint = this.GetComponentInParent<LevelManager>().GetEntranceSpawn();
+        }
+        Player.transform.position = spawnPoint.transform.position;
+        Player.transform.rotation = spawnPoint.transform.rotation;
+        Player.transform.localScale = spawnPoint.transform.localScale;
     }
 
     private void OnLevelExit(Spawn _)
     {
-        Destroy(Player);
+
     }
 }

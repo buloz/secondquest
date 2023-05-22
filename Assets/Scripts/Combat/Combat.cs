@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Combat : MonoBehaviour
@@ -11,7 +9,6 @@ public abstract class Combat : MonoBehaviour
     public LayerMask Enemies;
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
         gameObject.TryGetComponent(out _stats);
@@ -21,13 +18,13 @@ public abstract class Combat : MonoBehaviour
         Init();
     }
 
-    // Update is called once per frame
     void Update()
     {
         _stats.AttackTime -= _stats.AttackTime > 0 ? Time.deltaTime : 0.0f;
     }
 
     #region EmbeddedMethods
+    
     public void OnCollisionStay2D(Collision2D collision)
     {
         if (Enemies == (Enemies | (1 << collision.gameObject.layer)))
